@@ -21,10 +21,10 @@ class IntelligenceService:
     """Service for running intelligence analysis on feedback entries."""
 
     @staticmethod
-    def analyze_text(text: str, rating: int | None = None) -> AnalysisResult:
+    def analyze_text(text: str, rating: int | None = None, corrections: list = None) -> AnalysisResult:
         """Run the intelligence pipeline on raw text."""
         pipeline = get_pipeline()
-        return pipeline.process(text, rating=rating)
+        return pipeline.process(text, rating=rating, corrections=corrections)
 
     @staticmethod
     async def analyze_and_update(
@@ -37,7 +37,25 @@ class IntelligenceService:
             from app.exceptions.handlers import FeedbackNotFoundError
             raise FeedbackNotFoundError(str(feedback_id))
 
-        result = IntelligenceService.analyze_text(feedback.text, rating=feedback.rating)
+        # Query corrections for learning loop
+        from sqlalchemy import select
+        from app.models.agent_run import FeedbackCorrection
+        from app.models.feedback import Feedback as FeedbackModel
+        corrections = []
+        try:
+            stmt = (
+                select(FeedbackCorrection, FeedbackModel.text)
+                .join(FeedbackModel, FeedbackCorrection.feedback_id == FeedbackModel.id)
+                .where(FeedbackCorrection.field_corrected == "category")
+                .order_by(FeedbackCorrection.created_at.desc())
+                .limit(20)
+            )
+            res = await db.execute(stmt)
+            corrections = res.all()
+        except Exception as e:
+            logger.error("Failed to load corrections in analyze_and_update: %s", str(e))
+
+        result = IntelligenceService.analyze_text(feedback.text, rating=feedback.rating, corrections=corrections)
 
         # Map the pipeline category to schema-compatible value
         category_map = {
@@ -69,7 +87,26 @@ class IntelligenceService:
         source: str,
     ) -> tuple[Feedback, AnalysisResult]:
         """Analyze text and create a new feedback entry with auto-filled fields."""
-        result = IntelligenceService.analyze_text(text, rating=rating)
+        # Query corrections for learning loop
+        from sqlalchemy import select
+        from app.models.agent_run import FeedbackCorrection
+        from app.models.feedback import Feedback as FeedbackModel
+        corrections = []
+        try:
+            stmt = (
+                select(FeedbackCorrection, FeedbackModel.text)
+                .join(FeedbackModel, FeedbackCorrection.feedback_id == FeedbackModel.id)
+                .where(FeedbackCorrection.field_corrected == "category")
+                .order_by(FeedbackCorrection.created_at.desc())
+                .limit(20)
+            )
+            res = await db.execute(stmt)
+            corrections = res.all()
+        except Exception as e:
+            logger.error("Failed to load corrections in analyze_and_create: %s", str(e))
+
+        result = IntelligenceService.analyze_text(text, rating=rating, corrections=corrections)
+
 
         category_map = {
             "bug": "bug",

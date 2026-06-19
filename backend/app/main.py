@@ -16,7 +16,9 @@ from app.api.v1.ai_analysis import router as ai_analysis_router
 from app.api.v1.feedback import router as feedback_router
 from app.api.v1.intelligence import router as intelligence_router
 from app.api.v1.agents import router as agents_router
+from app.api.v1.benchmark import router as benchmark_router
 from app.auth.router import router as auth_router
+
 from app.config import get_settings
 from app.database import create_tables
 from app.exceptions.handlers import register_exception_handlers
@@ -77,6 +79,8 @@ app.include_router(feedback_router, prefix="/api/v1")
 app.include_router(intelligence_router, prefix="/api/v1")
 app.include_router(ai_analysis_router, prefix="/api/v1")
 app.include_router(agents_router, prefix="/api/v1")
+app.include_router(benchmark_router, prefix="/api/v1")
+
 
 
 @app.get("/health", tags=["Health"])

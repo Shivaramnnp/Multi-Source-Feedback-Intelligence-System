@@ -1,0 +1,34 @@
+# Environment variables (CRITICAL: Do not commit secrets!)
+.env
+.env.local
+
+# MacOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv/
+env/
+.venv/
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+.npm/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+docker-compose.override.yml
+
+# Database / SQLite (if any local DB files are generated)
+*.db
+*.sqlite3

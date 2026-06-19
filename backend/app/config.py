@@ -19,6 +19,8 @@ class Settings(BaseSettings):
     CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000"
     LOG_LEVEL: str = "INFO"
     REDIS_URL: str = "redis://localhost:6379/0"
+    GEMINI_API_KEY: str = ""
+    GEMINI_MODEL: str = "gemini-2.5-flash"
 
     model_config = SettingsConfigDict(
         env_file=".env",

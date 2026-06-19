@@ -37,7 +37,7 @@ class GeminiProvider(AIProviderBase):
 
     @property
     def supported_models(self) -> list[str]:
-        return ["gemini-2.0-flash", "gemini-1.5-pro", "gemini-1.5-flash"]
+        return ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash", "gemini-1.5-pro"]
 
     def is_configured(self) -> bool:
         return bool(self.api_key)
@@ -45,8 +45,17 @@ class GeminiProvider(AIProviderBase):
     async def health_check(self) -> bool:
         if not self.is_configured():
             return False
-        logger.info("Gemini health check: API key present but live check not implemented.")
-        return True
+        try:
+            import asyncio
+            import google.generativeai as genai
+            genai.configure(api_key=self.api_key)
+            # Test connectivity and API key validity asynchronously
+            await asyncio.to_thread(genai.list_models)
+            logger.info("Gemini health check passed successfully.")
+            return True
+        except Exception as e:
+            logger.error("Gemini health check failed: %s", str(e))
+            return False
 
     async def analyze(
         self,
@@ -57,50 +66,49 @@ class GeminiProvider(AIProviderBase):
         priority: str,
         source: str,
     ) -> AIResponse:
-        """Generate analysis using Google Gemini.
-        
-        To activate, install google-generativeai and uncomment below.
-        """
+        """Generate analysis using Google Gemini API."""
         if not self.is_configured():
             raise RuntimeError("Gemini provider is not configured. Set GEMINI_API_KEY.")
 
         start_time = time.perf_counter()
         prompt = build_analysis_prompt(feedback_text, rating, category, sentiment, priority, source)
 
-        # ----------------------------------------------------------------
-        # UNCOMMENT TO ACTIVATE:
-        #
-        # import google.generativeai as genai
-        # genai.configure(api_key=self.api_key)
-        # model = genai.GenerativeModel(
-        #     model_name=self.default_model,
-        #     system_instruction=SYSTEM_PROMPT,
-        #     generation_config=genai.GenerationConfig(
-        #         response_mime_type="application/json",
-        #         temperature=0.3,
-        #         max_output_tokens=500,
-        #     ),
-        # )
-        # response = await model.generate_content_async(prompt)
-        # parsed = json.loads(response.text)
-        # processing_time = (time.perf_counter() - start_time) * 1000
-        #
-        # return AIResponse(
-        #     summary=parsed.get("summary", ""),
-        #     root_cause=parsed.get("root_cause", ""),
-        #     business_impact=parsed.get("business_impact", ""),
-        #     recommended_action=parsed.get("recommended_action", ""),
-        #     priority_reason=parsed.get("priority_reason", ""),
-        #     confidence_score=0.85,
-        #     provider=self.name,
-        #     model_name=self.default_model,
-        #     prompt_tokens=str(response.usage_metadata.prompt_token_count),
-        #     completion_tokens=str(response.usage_metadata.candidates_token_count),
-        #     processing_time_ms=round(processing_time, 2),
-        # )
-        # ----------------------------------------------------------------
+        try:
+            import google.generativeai as genai
+            genai.configure(api_key=self.api_key)
+            model = genai.GenerativeModel(
+                model_name=self.default_model,
+                system_instruction=SYSTEM_PROMPT,
+                generation_config=genai.GenerationConfig(
+                    response_mime_type="application/json",
+                    temperature=0.3,
+                    max_output_tokens=500,
+                ),
+            )
+            response = await model.generate_content_async(prompt)
+            parsed = json.loads(response.text)
+            processing_time = (time.perf_counter() - start_time) * 1000
 
-        raise NotImplementedError(
-            "Gemini provider is configured but implementation is commented out. "
-            "Install 'google-generativeai' and uncomment the code in providers/gemini.py."
-        )
+            prompt_tokens = None
+            completion_tokens = None
+            if hasattr(response, "usage_metadata") and response.usage_metadata:
+                prompt_tokens = str(response.usage_metadata.prompt_token_count)
+                completion_tokens = str(response.usage_metadata.candidates_token_count)
+
+            return AIResponse(
+                summary=parsed.get("summary", ""),
+                root_cause=parsed.get("root_cause", ""),
+                business_impact=parsed.get("business_impact", ""),
+                recommended_action=parsed.get("recommended_action", ""),
+                priority_reason=parsed.get("priority_reason", ""),
+                confidence_score=0.90,
+                provider=self.name,
+                model_name=self.default_model,
+                prompt_tokens=prompt_tokens,
+                completion_tokens=completion_tokens,
+                processing_time_ms=round(processing_time, 2),
+                raw_response={"model": self.default_model},
+            )
+        except Exception as e:
+            logger.error("Gemini API analysis failed: %s. Re-raising to allow registry fallback.", str(e))
+            raise e

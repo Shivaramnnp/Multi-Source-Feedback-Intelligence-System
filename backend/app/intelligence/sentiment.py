@@ -11,6 +11,45 @@ from dataclasses import dataclass, field
 logger = logging.getLogger(__name__)
 
 
+_transformer_pipeline = None
+_transformer_load_error = None
+
+
+def get_transformer_pipeline():
+    """Get the cached HuggingFace sentiment pipeline singleton with timeout protection."""
+    global _transformer_pipeline, _transformer_load_error
+    if _transformer_load_error is not None:
+        return None
+    if _transformer_pipeline is None:
+        try:
+            from transformers import pipeline
+            import concurrent.futures
+            logger.info("Initializing HuggingFace sentiment analyzer (distilbert-base-uncased-finetuned-sst-2-english)...")
+            
+            def load_model():
+                return pipeline(
+                    "sentiment-analysis",
+                    model="distilbert-base-uncased-finetuned-sst-2-english",
+                )
+            
+            executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+            future = executor.submit(load_model)
+            try:
+                _transformer_pipeline = future.result(timeout=10.0)  # Wait max 10 seconds for download/load
+                logger.info("HuggingFace sentiment analyzer loaded successfully.")
+            finally:
+                executor.shutdown(wait=False, cancel_futures=True)
+                
+        except Exception as e:
+            import concurrent.futures
+            if isinstance(e, concurrent.futures.TimeoutError):
+                _transformer_load_error = "Model download/load timed out."
+            else:
+                _transformer_load_error = str(e)
+            logger.error("Failed to load HuggingFace sentiment analyzer: %s. Falling back to heuristic model.", _transformer_load_error)
+    return _transformer_pipeline
+
+
 @dataclass
 class SentimentResult:
     """Result of sentiment analysis."""
@@ -22,7 +61,7 @@ class SentimentResult:
 
 
 class SentimentAnalyzer:
-    """Keyword-based sentiment analysis engine."""
+    """HuggingFace & Keyword-based sentiment analysis engine."""
 
     POSITIVE_WORDS: dict[str, float] = {
         # Strong positive (weight 2.0)
@@ -71,11 +110,53 @@ class SentimentAnalyzer:
         "super": 1.5, "utterly": 2.0,
     }
 
-    def analyze(self, text: str) -> SentimentResult:
-        """Analyze sentiment of cleaned text."""
+    def analyze(self, text: str, force_heuristic: bool = False) -> SentimentResult:
+        """Analyze sentiment of cleaned text using HuggingFace DistilBERT with a heuristic fallback."""
         if not text:
             return SentimentResult(label="neutral", score=0.0, confidence=0.0)
 
+        # 1. Run heuristic analyzer in background to collect matching positive/negative keyword lists
+        heuristic_result = self._analyze_heuristic(text)
+
+        if force_heuristic:
+            return heuristic_result
+
+        # 2. Try running HuggingFace Transformer model
+        transformer = get_transformer_pipeline()
+        if transformer is not None:
+            try:
+                # Truncate text to fit model max input length (512 tokens)
+                truncated_text = " ".join(text.split()[:350])
+                output = transformer(truncated_text)[0]
+                label_raw = output["label"].upper()
+                score_raw = float(output["score"])
+
+                if label_raw == "POSITIVE":
+                    label = "positive"
+                    score = score_raw
+                else:
+                    label = "negative"
+                    score = -score_raw
+
+                result = SentimentResult(
+                    label=label,
+                    score=round(score, 3),
+                    confidence=round(score_raw, 2),
+                    positive_words=heuristic_result.positive_words,
+                    negative_words=heuristic_result.negative_words,
+                )
+                logger.info(
+                    "Transformer sentiment analysis: label=%s score=%.3f confidence=%.2f",
+                    result.label, result.score, result.confidence,
+                )
+                return result
+            except Exception as e:
+                logger.error("HuggingFace sentiment analysis execution failed: %s. Falling back to heuristic.", str(e))
+
+        return heuristic_result
+
+    def _analyze_heuristic(self, text: str) -> SentimentResult:
+        """Lexicon/keyword-based sentiment analysis fallback."""
         words = text.lower().split()
         positive_score = 0.0
         negative_score = 0.0
@@ -122,10 +203,9 @@ class SentimentAnalyzer:
         total_sentiment = positive_score + negative_score
         if total_sentiment == 0:
             score = 0.0
-            confidence = 0.3  # Low confidence when no sentiment words found
+            confidence = 0.3
         else:
             score = (positive_score - negative_score) / total_sentiment
-            # Confidence based on how many sentiment words were found relative to text length
             coverage = min(total_sentiment / max(total_words * 0.3, 1), 1.0)
             confidence = round(0.4 + (coverage * 0.6), 2)
 
@@ -144,9 +224,10 @@ class SentimentAnalyzer:
             positive_words=found_positive,
             negative_words=found_negative,
         )
-        logger.info(
-            "Sentiment analysis: label=%s score=%.3f confidence=%.2f pos=%s neg=%s",
+        logger.debug(
+            "Heuristic fallback analysis: label=%s score=%.3f confidence=%.2f pos=%s neg=%s",
             result.label, result.score, result.confidence,
             found_positive, found_negative,
         )
         return result
+

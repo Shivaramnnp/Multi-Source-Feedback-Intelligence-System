@@ -69,16 +69,63 @@ class FeedbackCategorizer:
         },
     }
 
-    def categorize(self, text: str) -> CategoryResult:
-        """Categorize cleaned feedback text."""
+    def categorize(self, text: str, corrections: list = None) -> CategoryResult:
+        """Categorize cleaned feedback text, optionally adjusting weights based on session corrections."""
         if not text:
             return CategoryResult(category="support", confidence=0.0, matched_keywords=[])
 
         text_lower = text.lower()
-        scores: dict[str, float] = {}
-        matches: dict[str, list[str]] = {}
 
+        # 1. First run: Calculate base scores using static keyword weights
+        base_scores = {}
         for category, keywords in self.CATEGORY_KEYWORDS.items():
+            score = 0.0
+            for keyword, weight in keywords.items():
+                if keyword in text_lower:
+                    score += weight
+            base_scores[category] = score
+
+        base_best_category = max(base_scores, key=base_scores.get) if any(base_scores.values()) else "support"
+
+        # 2. Adjust keywords weights using corrections list
+        import copy
+        keywords_map = copy.deepcopy(self.CATEGORY_KEYWORDS)
+
+        adjustments_applied = 0
+        if corrections:
+            db_to_pipeline = {
+                "bug": "bug",
+                "feature": "feature_request",
+                "praise": "praise",
+                "complaint": "complaint",
+                "other": "support"
+            }
+            for corr, fb_text in corrections:
+                if corr.field_corrected != "category":
+                    continue
+                
+                corr_clean = fb_text.lower()
+                old_cat = db_to_pipeline.get(corr.old_value, corr.old_value)
+                new_cat = db_to_pipeline.get(corr.new_value, corr.new_value)
+
+                # If there are keywords in the corrected text, boost them
+                if new_cat in keywords_map:
+                    for kw in keywords_map[new_cat]:
+                        if kw in corr_clean and kw in text_lower:
+                            keywords_map[new_cat][kw] += 0.75  # Boost weight
+                            adjustments_applied += 1
+                
+                # Penalize keywords from the incorrect category that are in the corrected text
+                if old_cat in keywords_map:
+                    for kw in keywords_map[old_cat]:
+                        if kw in corr_clean and kw in text_lower:
+                            keywords_map[old_cat][kw] = max(0.0, keywords_map[old_cat][kw] - 0.75)  # Penalize weight
+                            adjustments_applied += 1
+
+        # 3. Second run: Calculate adjusted scores using the modified keywords map
+        scores = {}
+        matches = {}
+        for category, keywords in keywords_map.items():
             score = 0.0
             matched = []
             for keyword, weight in keywords.items():
@@ -88,7 +135,6 @@ class FeedbackCategorizer:
             scores[category] = score
             matches[category] = matched
 
-        # Find best category
         best_category = max(scores, key=scores.get)  # type: ignore[arg-type]
         best_score = scores[best_category]
         total_score = sum(scores.values())
@@ -103,8 +149,17 @@ class FeedbackCategorizer:
                 matched_keywords=matches[best_category],
             )
 
-        logger.info(
-            "Categorization: category=%s confidence=%.2f keywords=%s",
-            result.category, result.confidence, result.matched_keywords,
-        )
+        if adjustments_applied > 0:
+            if base_best_category != best_category:
+                logger.info(
+                    "Learning Loop: category adjusted from '%s' to '%s' (adjustments=%d)",
+                    base_best_category, best_category, adjustments_applied
+                )
+            else:
+                logger.debug(
+                    "Learning Loop: keyword weights adjusted but category remained '%s' (adjustments=%d)",
+                    best_category, adjustments_applied
+                )
+
         return result
+

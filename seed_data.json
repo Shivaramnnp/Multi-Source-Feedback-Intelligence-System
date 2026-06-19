@@ -1,0 +1,1002 @@
+[
+  {
+    "text": "The UI is incredibly confusing. I have to click five times just to edit a draft.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-14T23:03:10.572463"
+  },
+  {
+    "text": "The data export feature is a lifesaver. Smooth and reliable.",
+    "rating": 4,
+    "category": "feature",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-15T18:57:10.572463"
+  },
+  {
+    "text": "Data is not saving! I filled out the form twice and it disappeared both times.",
+    "rating": 2,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-11T07:27:10.572463"
+  },
+  {
+    "text": "The UI is incredibly confusing. I have to click five times just to edit a draft.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-17T03:34:10.572463"
+  },
+  {
+    "text": "Works exactly as advertised. Clean interface, no fluff. Good job!",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-16T17:29:10.572463"
+  },
+  {
+    "text": "Any plans to integrate with Jira Cloud for syncing bug reports?",
+    "rating": 3,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-12T19:50:10.572463"
+  },
+  {
+    "text": "Critical vulnerability: I can see another user's draft in my dashboard.",
+    "rating": 1,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "critical",
+    "source": "support",
+    "status": "in_review",
+    "created_at": "2026-06-18T08:18:10.572463"
+  },
+  {
+    "text": "The integrations are incredibly stable and intuitive. Perfect execution.",
+    "rating": 4,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "social",
+    "status": "in_review",
+    "created_at": "2026-06-17T02:12:10.572463"
+  },
+  {
+    "text": "Can you implement a bulk delete option for the feedback table?",
+    "rating": 5,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-15T15:24:10.572463"
+  },
+  {
+    "text": "Please add a custom filter builder on the main dashboard.",
+    "rating": 5,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-10T20:11:10.572463"
+  },
+  {
+    "text": "How do I add a new seat to our organization plan?",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-14T04:36:10.572463"
+  },
+  {
+    "text": "This tool has saved our team hours of work every week. Highly recommended!",
+    "rating": 4,
+    "category": "praise",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-11T18:33:10.572463"
+  },
+  {
+    "text": "Love the new dashboard UI! It is extremely clean and fast.",
+    "rating": 4,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-13T13:45:10.572463"
+  },
+  {
+    "text": "Love the new dashboard UI! It is extremely clean and fast.",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-15T15:52:10.572463"
+  },
+  {
+    "text": "This software is overpriced for the small number of features it offers.",
+    "rating": 1,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-18T05:22:10.572463"
+  },
+  {
+    "text": "Fantastic product! Really appreciate the attention to detail in the user experience.",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "web",
+    "status": "in_review",
+    "created_at": "2026-06-12T09:23:10.572463"
+  },
+  {
+    "text": "Any plans to integrate with Jira Cloud for syncing bug reports?",
+    "rating": 5,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-13T07:41:10.572463"
+  },
+  {
+    "text": "Suggest adding support for multi-language localization.",
+    "rating": 5,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-13T22:49:10.572463"
+  },
+  {
+    "text": "This software is overpriced for the small number of features it offers.",
+    "rating": 1,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-12T14:54:10.572463"
+  },
+  {
+    "text": "The billing system charged me twice this month. Please refund immediately!",
+    "rating": 2,
+    "category": "complaint",
+    "sentiment": "neutral",
+    "priority": "critical",
+    "source": "email",
+    "status": "in_review",
+    "created_at": "2026-06-16T16:45:10.572463"
+  },
+  {
+    "text": "How do I change my billing address on the invoice?",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "medium",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-17T09:19:10.572463"
+  },
+  {
+    "text": "The integrations are incredibly stable and intuitive. Perfect execution.",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-11T22:00:10.572463"
+  },
+  {
+    "text": "Cannot login to my account. It says email not verified, but I didn't get a link.",
+    "rating": 4,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "in_review",
+    "created_at": "2026-06-11T08:39:10.572463"
+  },
+  {
+    "text": "Very pleased with the latest performance improvements. It is so much faster now!",
+    "rating": 4,
+    "category": "feature",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-17T02:56:10.572463"
+  },
+  {
+    "text": "The UI is incredibly confusing. I have to click five times just to edit a draft.",
+    "rating": 1,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-12T11:16:10.572463"
+  },
+  {
+    "text": "We have been experiencing constant glitches and downtime this week. Frustrating.",
+    "rating": 3,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "medium",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-12T13:24:10.572463"
+  },
+  {
+    "text": "The notifications are extremely annoying. I cannot find where to turn them off.",
+    "rating": 3,
+    "category": "complaint",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "support",
+    "status": "in_review",
+    "created_at": "2026-06-11T03:00:10.572463"
+  },
+  {
+    "text": "The app crashes immediately when I try to export reports to CSV.",
+    "rating": 2,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-14T09:02:10.572463"
+  },
+  {
+    "text": "This software is overpriced for the small number of features it offers.",
+    "rating": 2,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "social",
+    "status": "in_review",
+    "created_at": "2026-06-15T08:56:10.572463"
+  },
+  {
+    "text": "Excellent experience overall. The search functionality is super responsive.",
+    "rating": 4,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-18T09:13:10.572463"
+  },
+  {
+    "text": "The login page is completely broken on Safari. It keeps reloading in a loop.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "high",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-16T15:08:10.572463"
+  },
+  {
+    "text": "This software is overpriced for the small number of features it offers.",
+    "rating": 1,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-13T04:35:10.572463"
+  },
+  {
+    "text": "Works exactly as advertised. Clean interface, no fluff. Good job!",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-17T17:04:10.572463"
+  },
+  {
+    "text": "Getting a 500 internal server error whenever I click on the billing tab.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "high",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-10T20:22:10.572463"
+  },
+  {
+    "text": "No phone support? This is ridiculous for an enterprise plan.",
+    "rating": 3,
+    "category": "complaint",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-13T19:33:10.572463"
+  },
+  {
+    "text": "The app crashes immediately when I try to export reports to CSV.",
+    "rating": 2,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "social",
+    "status": "in_review",
+    "created_at": "2026-06-14T16:09:10.572463"
+  },
+  {
+    "text": "Getting a white screen of death on startup after the recent patch.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-14T11:28:10.572463"
+  },
+  {
+    "text": "Love the new dashboard UI! It is extremely clean and fast.",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-14T05:10:10.572463"
+  },
+  {
+    "text": "Suggest adding support for multi-language localization.",
+    "rating": 3,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "in_review",
+    "created_at": "2026-06-18T13:57:10.572463"
+  },
+  {
+    "text": "Great customer support. They responded and resolved my issue in under 10 minutes.",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-17T19:17:10.572463"
+  },
+  {
+    "text": "This tool has saved our team hours of work every week. Highly recommended!",
+    "rating": 4,
+    "category": "praise",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "support",
+    "status": "in_review",
+    "created_at": "2026-06-11T06:46:10.572463"
+  },
+  {
+    "text": "Any plans to integrate with Jira Cloud for syncing bug reports?",
+    "rating": 3,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-12T06:04:10.572463"
+  },
+  {
+    "text": "Any plans to integrate with Jira Cloud for syncing bug reports?",
+    "rating": 5,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "web",
+    "status": "in_review",
+    "created_at": "2026-06-12T22:18:10.572463"
+  },
+  {
+    "text": "Works exactly as advertised. Clean interface, no fluff. Good job!",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-16T17:24:10.572463"
+  },
+  {
+    "text": "This tool has saved our team hours of work every week. Highly recommended!",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-17T14:27:10.572463"
+  },
+  {
+    "text": "Fantastic product! Really appreciate the attention to detail in the user experience.",
+    "rating": 4,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T06:00:10.572463"
+  },
+  {
+    "text": "How do I change my billing address on the invoice?",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "medium",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-12T08:33:10.572463"
+  },
+  {
+    "text": "Excellent experience overall. The search functionality is super responsive.",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-14T03:41:10.572463"
+  },
+  {
+    "text": "The profile picture upload fails with an unclear error message.",
+    "rating": 2,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "high",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-18T08:15:10.572463"
+  },
+  {
+    "text": "Works exactly as advertised. Clean interface, no fluff. Good job!",
+    "rating": 4,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-15T13:53:10.572463"
+  },
+  {
+    "text": "Very disappointed with the lack of customer support on weekends.",
+    "rating": 1,
+    "category": "complaint",
+    "sentiment": "negative",
+    "priority": "medium",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-13T09:00:10.572463"
+  },
+  {
+    "text": "Could you add the capability to export reports directly to PDF format?",
+    "rating": 5,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-13T23:49:10.572463"
+  },
+  {
+    "text": "Critical vulnerability: I can see another user's draft in my dashboard.",
+    "rating": 2,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "critical",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-16T22:36:10.572463"
+  },
+  {
+    "text": "Cannot login to my account. It says email not verified, but I didn't get a link.",
+    "rating": 4,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-13T13:33:10.572463"
+  },
+  {
+    "text": "Very disappointed with the lack of customer support on weekends.",
+    "rating": 2,
+    "category": "complaint",
+    "sentiment": "negative",
+    "priority": "medium",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-12T00:24:10.572463"
+  },
+  {
+    "text": "Unable to reset password. The reset link expired immediately.",
+    "rating": 2,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "medium",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-12T04:45:10.572463"
+  },
+  {
+    "text": "Can you implement a bulk delete option for the feedback table?",
+    "rating": 3,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-16T03:41:10.572463"
+  },
+  {
+    "text": "Great customer support. They responded and resolved my issue in under 10 minutes.",
+    "rating": 4,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-11T10:02:10.572463"
+  },
+  {
+    "text": "It would be nice to have role-based access control (RBAC) for team members.",
+    "rating": 5,
+    "category": "feature",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "api",
+    "status": "in_review",
+    "created_at": "2026-06-11T05:41:10.572463"
+  },
+  {
+    "text": "Can you implement a bulk delete option for the feedback table?",
+    "rating": 5,
+    "category": "feature",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "in_review",
+    "created_at": "2026-06-18T16:24:10.572463"
+  },
+  {
+    "text": "Love the new dashboard UI! It is extremely clean and fast.",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-11T04:47:10.572463"
+  },
+  {
+    "text": "The integrations are incredibly stable and intuitive. Perfect execution.",
+    "rating": 4,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-14T12:34:10.572463"
+  },
+  {
+    "text": "Session timeout is occurring every 2 minutes instead of the configured 30 minutes.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "medium",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-14T13:48:10.572463"
+  },
+  {
+    "text": "The login page is completely broken on Safari. It keeps reloading in a loop.",
+    "rating": 2,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "high",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-14T09:59:10.572463"
+  },
+  {
+    "text": "The UI is incredibly confusing. I have to click five times just to edit a draft.",
+    "rating": 1,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-17T03:56:10.572463"
+  },
+  {
+    "text": "It would be nice to have role-based access control (RBAC) for team members.",
+    "rating": 3,
+    "category": "feature",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-14T21:40:10.572463"
+  },
+  {
+    "text": "The documentation is outdated and missing half of the API endpoints.",
+    "rating": 2,
+    "category": "other",
+    "sentiment": "negative",
+    "priority": "medium",
+    "source": "api",
+    "status": "new",
+    "created_at": "2026-06-10T23:18:10.572463"
+  },
+  {
+    "text": "The data export feature is a lifesaver. Smooth and reliable.",
+    "rating": 5,
+    "category": "feature",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "web",
+    "status": "in_review",
+    "created_at": "2026-06-18T10:16:10.572463"
+  },
+  {
+    "text": "The data export feature is a lifesaver. Smooth and reliable.",
+    "rating": 5,
+    "category": "feature",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-14T10:57:10.572463"
+  },
+  {
+    "text": "The notifications are extremely annoying. I cannot find where to turn them off.",
+    "rating": 2,
+    "category": "complaint",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-13T14:01:10.572463"
+  },
+  {
+    "text": "The login page is completely broken on Safari. It keeps reloading in a loop.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "high",
+    "source": "social",
+    "status": "new",
+    "created_at": "2026-06-15T23:05:10.572463"
+  },
+  {
+    "text": "The integrations are incredibly stable and intuitive. Perfect execution.",
+    "rating": 5,
+    "category": "praise",
+    "sentiment": "positive",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-12T17:41:10.572463"
+  },
+  {
+    "text": "The payment system is broken and I lost my data! Please fix ASAP.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "critical",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T05:13:10.572463"
+  },
+  {
+    "text": "Cannot renew my subscription, checkout is failing with a server error.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "medium",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T00:41:10.572463"
+  },
+  {
+    "text": "The payment system is broken and I lost my data! Please fix ASAP.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "critical",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T08:24:10.572463"
+  },
+  {
+    "text": "Critical bug: checkout button is completely unresponsive.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T02:09:10.572463"
+  },
+  {
+    "text": "Unable to complete checkout, checkout page is broken.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T16:34:10.572463"
+  },
+  {
+    "text": "Payment validation failed error message during checkout.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "critical",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T15:05:10.572463"
+  },
+  {
+    "text": "Lost my checkout details and payment didn't process.",
+    "rating": 1,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T09:00:10.572463"
+  },
+  {
+    "text": "The payment system is broken and I lost my data! Please fix ASAP.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "critical",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T00:13:10.572463"
+  },
+  {
+    "text": "The payment system is broken and I lost my data! Please fix ASAP.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "critical",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T16:46:10.572463"
+  },
+  {
+    "text": "Checkout page gives a 500 error when clicking the submit button.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "medium",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T11:42:10.572463"
+  },
+  {
+    "text": "Critical bug: checkout button is completely unresponsive.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T17:58:10.572463"
+  },
+  {
+    "text": "Unable to complete checkout, checkout page is broken.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T01:47:10.572463"
+  },
+  {
+    "text": "The payment system is broken and I lost my data! Please fix ASAP.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "critical",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T07:47:10.572463"
+  },
+  {
+    "text": "Critical bug: checkout button is completely unresponsive.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T13:08:10.572463"
+  },
+  {
+    "text": "Critical bug: checkout button is completely unresponsive.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T17:15:10.572463"
+  },
+  {
+    "text": "Critical bug: checkout button is completely unresponsive.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T06:50:10.572463"
+  },
+  {
+    "text": "Cannot renew my subscription, checkout is failing with a server error.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "medium",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T02:23:10.572463"
+  },
+  {
+    "text": "Checkout page gives a 500 error when clicking the submit button.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "medium",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T09:41:10.572463"
+  },
+  {
+    "text": "Unable to complete checkout, checkout page is broken.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "neutral",
+    "priority": "high",
+    "source": "support",
+    "status": "new",
+    "created_at": "2026-06-18T17:37:10.572463"
+  },
+  {
+    "text": "The payment system is broken and I lost my data! Please fix ASAP.",
+    "rating": 1,
+    "category": "bug",
+    "sentiment": "negative",
+    "priority": "critical",
+    "source": "web",
+    "status": "new",
+    "created_at": "2026-06-18T14:59:10.572463"
+  },
+  {
+    "text": "Neutral inquiry regarding product specifications.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-17T01:58:10.572463"
+  },
+  {
+    "text": "Neutral inquiry regarding product specifications.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-13T12:58:10.572463"
+  },
+  {
+    "text": "Neutral inquiry regarding product specifications.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-16T17:58:10.572463"
+  },
+  {
+    "text": "Neutral inquiry regarding product specifications.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-12T10:58:10.572463"
+  },
+  {
+    "text": "Neutral inquiry regarding product specifications.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-17T09:58:10.572463"
+  },
+  {
+    "text": "Neutral inquiry regarding product specifications.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-14T17:58:10.572463"
+  },
+  {
+    "text": "Neutral inquiry regarding product specifications.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-16T02:58:10.572463"
+  },
+  {
+    "text": "Neutral inquiry regarding product specifications.",
+    "rating": 3,
+    "category": "other",
+    "sentiment": "neutral",
+    "priority": "low",
+    "source": "email",
+    "status": "new",
+    "created_at": "2026-06-13T02:58:10.572463"
+  }
+]

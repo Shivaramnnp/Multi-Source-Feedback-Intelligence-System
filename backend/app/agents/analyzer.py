@@ -29,8 +29,30 @@ async def analyzer_node(state: FeedbackAgentState) -> dict:
         logger.error("No feedback_id found in agent state.")
         return {}
 
-    # 1. Run intelligence analysis
-    analysis = IntelligenceService.analyze_text(cleaned_text, rating=rating)
+    # 1. Load latest 20 category overrides for learning loop feedback
+    corrections = []
+    async with async_session_factory() as db:
+        try:
+            from sqlalchemy import select
+            from app.models.agent_run import FeedbackCorrection
+            from app.models.feedback import Feedback
+
+            stmt = (
+                select(FeedbackCorrection, Feedback.text)
+                .join(Feedback, FeedbackCorrection.feedback_id == Feedback.id)
+                .where(FeedbackCorrection.field_corrected == "category")
+                .order_by(FeedbackCorrection.created_at.desc())
+                .limit(20)
+            )
+            res = await db.execute(stmt)
+            corrections = res.all()
+            logger.info("Loaded %d category corrections for learning loop adaptation.", len(corrections))
+        except Exception as e:
+            logger.error("Learning Loop: Failed to load corrections: %s", str(e))
+
+    # 2. Run intelligence analysis with corrections list
+    analysis = IntelligenceService.analyze_text(cleaned_text, rating=rating, corrections=corrections)
+
     
     sentiment = analysis.sentiment.label
     

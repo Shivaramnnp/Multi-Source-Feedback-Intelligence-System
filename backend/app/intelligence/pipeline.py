@@ -62,12 +62,13 @@ class IntelligencePipeline:
         self.priority_scorer = PriorityScorer()
         logger.info("Intelligence pipeline initialized.")
 
-    def process(self, text: str, rating: int | None = None) -> AnalysisResult:
+    def process(self, text: str, rating: int | None = None, corrections: list = None) -> AnalysisResult:
         """Run the full analysis pipeline on raw feedback text.
 
         Args:
             text: Raw feedback text from user.
             rating: Optional user rating (1-5) to factor into priority.
+            corrections: Optional list of tuples (FeedbackCorrection, feedback_text) for few-shot weight adjustments.
 
         Returns:
             AnalysisResult with sentiment, category, and priority.
@@ -85,8 +86,9 @@ class IntelligencePipeline:
         logger.debug("Pipeline step 2 — Sentiment: %s (%.3f)", sentiment.label, sentiment.score)
 
         # Step 3: Auto-categorization
-        category = self.categorizer.categorize(cleaned)
+        category = self.categorizer.categorize(cleaned, corrections=corrections)
         steps.append("auto_categorization")
+
         logger.debug("Pipeline step 3 — Category: %s", category.category)
 
         # Step 4: Priority scoring (uses sentiment score + rating for context)
