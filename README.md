@@ -172,3 +172,6 @@ Password: admin123
 MIT
 # Intelligent-Resume-Analyzer
 # Multi-Source-Feedback-Intelligence-System
+
+# Youtube : https://www.youtube.com/watch?v=86RavYaDUyo
+# LinkedIn: https://www.linkedin.com/in/shivaramnnp/
